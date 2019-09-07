@@ -1,0 +1,36 @@
+@layout-index: ~"@{layout-prefix}index";
+
+.@{layout-index} {
+  display: flex;
+  flex: 1 1 auto;
+
+  &-top {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 38px;
+    padding: 0;
+    background: @layout-index-top-background;
+    line-height: 38px;
+  }
+
+  &-header {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 72px;
+    padding: 0;
+    background: @layout-index-header-background;
+    line-height: 72px;
+  }
+
+  &-content {
+    flex: 1 1 auto;
+  }
+
+  &-footer {
+    flex: 0 0 auto;
+    width: 100%;
+    background: @layout-index-footer-background;
+    padding: 0;
+    border-top: 1px solid #e5e5e5;
+  }
+}
