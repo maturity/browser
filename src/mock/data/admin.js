@@ -2,7 +2,7 @@ import Mock from 'mockjs'
 
 var Random = Mock.Random
 
-export const customer = {
+export const admin = {
   // 'uuid': 'c41af15c35c8454bbc44e673d3b78d1d',
   'uuid': Random.string('0123456789abcdf', 32),
   'name': Random.name(),
@@ -11,12 +11,12 @@ export const customer = {
   'created_at': Random.now(),
   'updated_at': Random.now()
 }
-export const customerLogin = {
+export const adminLogin = {
   'accessToken': Random.string('upper', 64),
   'tokenType': 'Bearer',
   'expiresIn': 691200,
-  'customer': customer
+  'admin': admin
 }
-export const customerFetch = {
-  'customer': customer
+export const adminFetch = {
+  'admin': admin
 }

@@ -1,25 +1,25 @@
 import { successResponse } from '../data/response'
-import { customerLogin, customerFetch } from '../data/customer'
+import { adminLogin, adminFetch } from '../data/admin'
 
 export const register = req => {
   req = JSON.parse(req.body)
 
-  customerLogin.customer.name = req.name
-  customerLogin.customer.email = req.email
+  adminLogin.admin.name = req.name
+  adminLogin.admin.email = req.email
 
-  successResponse.data = customerLogin
+  successResponse.data = adminLogin
   return successResponse
 }
 
 export const login = req => {
   req = JSON.parse(req.body)
   if (req.username.indexOf('@') !== -1) {
-    customerLogin.customer.email = req.username
+    adminLogin.admin.email = req.username
   } else {
-    customerLogin.customer.name = req.username
+    adminLogin.admin.name = req.username
   }
 
-  successResponse.data = customerLogin
+  successResponse.data = adminLogin
   return successResponse
 }
 
@@ -28,7 +28,7 @@ export const logout = () => {
 }
 
 export const fetchUser = () => {
-  successResponse.data = customerFetch
+  successResponse.data = adminFetch
   return successResponse
 }
 

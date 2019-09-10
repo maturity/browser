@@ -5,9 +5,9 @@ import { register, login, logout, fetchUser, passwordEmail, passwordReset } from
 // 后端的请求地址
 const { baseURL } = config.axios
 
-Mock.mock(baseURL + '/auth/customer/register', 'post', register)
-Mock.mock(baseURL + '/auth/customer/login', 'post', login)
-Mock.mock(baseURL + '/auth/customer/logout', 'get', logout)
-Mock.mock(baseURL + '/auth/customer/fetchUser', 'get', fetchUser)
-Mock.mock(baseURL + '/auth/customer/password/email', 'post', passwordEmail)
-Mock.mock(baseURL + '/auth/customer/password/reset', 'post', passwordReset)
+Mock.mock(baseURL + '/auth/admin/register', 'post', register)
+Mock.mock(baseURL + '/auth/admin/login', 'post', login)
+Mock.mock(baseURL + '/auth/admin/logout', 'get', logout)
+Mock.mock(baseURL + '/auth/admin/fetchUser', 'get', fetchUser)
+Mock.mock(baseURL + '/auth/admin/password/email', 'post', passwordEmail)
+Mock.mock(baseURL + '/auth/admin/password/reset', 'post', passwordReset)

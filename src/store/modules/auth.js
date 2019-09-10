@@ -2,15 +2,15 @@ import Cookies from 'js-cookie'
 import Auth from '@/api/auth'
 
 export const state = {
-  customer: null,
+  admin: null,
   token: Cookies.get('token') ? Cookies.get('token') : null,
   check: false
 }
 
 export const getters = {
-  customer: state => state.customer,
+  admin: state => state.admin,
   token: state => state.token,
-  check: state => state.customer !== null
+  check: state => state.admin !== null
 }
 
 export const mutations = {
@@ -24,13 +24,13 @@ export const mutations = {
     }
   },
 
-  LOGIN (state, { customer, token }) {
-    state.customer = customer
+  LOGIN (state, { admin, token }) {
+    state.admin = admin
     state.token = token
   },
 
   LOGOUT (state) {
-    state.customer = null
+    state.admin = null
     state.token = null
     Cookies.remove('token')
   }
@@ -40,12 +40,12 @@ export const actions = {
 
   async register ({ commit }, params) {
     const data = await Auth.register(params)
-    const { customer, tokenType, accessToken, expiresIn } = data.data
+    const { admin, tokenType, accessToken, expiresIn } = data.data
 
     let token = tokenType + ' ' + accessToken
     let remember = false
 
-    commit('LOGIN', { customer: customer, token: token })
+    commit('LOGIN', { admin: admin, token: token })
     commit('SAVE_TOKEN', { token: token, expiresIn: expiresIn, remember: remember })
 
     return data
@@ -53,12 +53,12 @@ export const actions = {
 
   async login ({ commit }, params) {
     const data = await Auth.login(params)
-    const { customer, tokenType, accessToken, expiresIn } = data.data
+    const { admin, tokenType, accessToken, expiresIn } = data.data
 
     let token = tokenType + ' ' + accessToken
     let remember = params.remember
 
-    commit('LOGIN', { customer: customer, token: token })
+    commit('LOGIN', { admin: admin, token: token })
     commit('SAVE_TOKEN', { token: token, expiresIn: expiresIn, remember: remember })
 
     return data
@@ -70,8 +70,8 @@ export const actions = {
   async fetchUser ({ commit, state }) {
     try {
       const data = await Auth.fetchUser()
-      const { customer } = data.data
-      commit('LOGIN', { customer: customer, token: state.token })
+      const { admin } = data.data
+      commit('LOGIN', { admin: admin, token: state.token })
     } catch (e) {
       commit('LOGOUT')
     }

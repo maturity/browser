@@ -7,21 +7,21 @@ import axios from 'axios'
  */
 export default {
   register: (params) => {
-    return axios.post('auth/customer/register', params)
+    return axios.post('auth/admin/register', params)
   },
   login: (params) => {
-    return axios.post('auth/customer/login', params)
+    return axios.post('auth/admin/login', params)
   },
   logout: () => {
-    return axios.get('auth/customer/logout')
+    return axios.get('auth/admin/logout')
   },
   fetchUser: () => {
-    return axios.get('auth/customer/fetchUser')
+    return axios.get('auth/admin/fetchUser')
   },
   passwordEmail: (params) => {
-    return axios.post('auth/customer/password/email', params)
+    return axios.post('auth/admin/password/email', params)
   },
   passwordReset: (params) => {
-    return axios.post('auth/customer/password/reset', params)
+    return axios.post('auth/admin/password/reset', params)
   }
 }
