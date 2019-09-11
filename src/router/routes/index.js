@@ -10,6 +10,7 @@ const index = [
       layout: 'IndexLayout',
       locale: 'index'
     },
+    redirect: '/auth/login',
     component: Index
   }
 ]

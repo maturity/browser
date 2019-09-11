@@ -15,7 +15,7 @@
         </FormItem>
         <FormItem>
           <Checkbox v-model="loginForm.remember">{{ $t('auth.login.rememberMe') }}</Checkbox>
-          <router-link :to="{ name: 'passwordEmail' }">
+          <router-link :to="{ name: 'passwordEmail' }" class="forgot-password">
             {{ $t('auth.login.forgotPassword') }}
           </router-link>
         </FormItem>

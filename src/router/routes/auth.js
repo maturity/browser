@@ -11,7 +11,7 @@ const auth = [{
   component: Auth,
   meta: {
     middleware: 'guest',
-    layout: 'DefaultLayout',
+    layout: 'AuthLayout',
     locale: 'auth'
   },
   redirect: '/auth/login',
